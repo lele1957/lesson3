@@ -65,7 +65,7 @@ class Train
 
   def set_route=(route)
     @route = route
-    @station = 0
+    @current_station_index = 0
     current_station.add_train(self)
   end
 
@@ -78,9 +78,9 @@ class Train
   end
 
   def station_backward
-      if @route.stations[@station] != @route.stations.first
+      return unless previous_station
       current_station.train_departure(self)
-      @station += 1 
+      @current_station_index += 1
       current_station.add_train(self)
     end
   end
