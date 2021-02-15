@@ -72,7 +72,7 @@ class Train
   def station_forward
     return unless next_station
       current_station.train_departure(self)
-      @station += 1 
+      @current_station_index += 1
       current_station.add_train(self)
     end
   end
